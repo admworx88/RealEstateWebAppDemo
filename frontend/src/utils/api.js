@@ -20,3 +20,33 @@ export const getAllProperties = async () => {
     throw error;
   }
 };
+
+export const getProperty = async (id) => {
+  try {
+    const response = await api.get(`/residency/${id}`, {
+      timeout: 10 * 1000,
+    });
+    if (response.status === 400 || response.status === 500) {
+      throw response.data;
+    }
+    return response.data;
+  } catch (error) {
+    toast.error('Error fetching properties');
+    throw error;
+  }
+};
+
+export const createUser = async (email) => {
+  try {
+    const response = await api.post('/user', {
+      email,
+    });
+    if (response.status === 400 || response.status === 500) {
+      throw response.data;
+    }
+    return response.data;
+  } catch (error) {
+    toast.error('Error creating user');
+    throw error;
+  }
+};

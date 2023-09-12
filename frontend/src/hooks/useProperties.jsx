@@ -1,4 +1,3 @@
-import React from 'react';
 import { getAllProperties } from '../utils/api';
 import { useQuery } from 'react-query';
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from '../../pages/SearchBar';
+import PropertyCard from '../../pages/PropertyCard';
 import useProperties from '../../hooks/useProperties';
 import './index.css';
 import { PuffLoader } from 'react-spinners';
@@ -31,6 +32,11 @@ const Properties = () => {
     <div className="wrapper">
       <div className="flexCenter paddings innerWidth properties-container">
         <SearchBar />
+        <div className="paddings flexCenter properties">
+          {data.map((card, i) => (
+            <PropertyCard card={card} key={i} />
+          ))}
+        </div>
       </div>
     </div>
   );
